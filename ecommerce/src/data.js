@@ -56,7 +56,7 @@ export const sliderItems = [
     },
     {
       id:4,
-      img:"https://www.burdastyle.com/media/catalog/product/cache/5dce411aab5e9e93103a1808ddd11c54/b/s/bs2304_104_heft.jpg",
+      img:"https://www.kindpng.com/picc/m/291-2917878_outfit-outfits-purple-cute-sweater-skirt-aesthetic-aesthetic.png",
     },
     {
       id:5,
