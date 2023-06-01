@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Navbar from '../components/Navbar';
 import Announcement from '../components/Announcement';
@@ -7,6 +7,7 @@ import Footer from '../components/Footer';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import { mobile } from "../responsive";
+
 
 const Container = styled.div``;
 
@@ -117,6 +118,7 @@ const Button = styled.button`
   }
 `;
 const Product = () => {
+ 
   return (
     <Container>
         <Navbar/>
