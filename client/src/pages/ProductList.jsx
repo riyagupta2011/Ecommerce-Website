@@ -6,6 +6,7 @@ import Products from '../components/Products';
 import Newsletter from '../components/Newsletter';
 import Footer from '../components/Footer';
 import { mobile } from "../responsive";
+import { useLocation } from 'react-router-dom';
 
 const Container = styled.div``;
 
@@ -38,6 +39,8 @@ const Select = styled.select`
 const Option = styled.option``;
 
 const ProductList = () => {
+  const location=useLocation();
+  console.log(location)
   return (
     <Container>
       <Navbar/>
