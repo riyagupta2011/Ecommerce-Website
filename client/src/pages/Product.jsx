@@ -7,6 +7,8 @@ import Footer from '../components/Footer';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import { mobile } from "../responsive";
+import { useLocation } from "react-router-dom";
+import {publicRequest} from "../requestMethod"
 
 
 const Container = styled.div``;
@@ -118,48 +120,71 @@ const Button = styled.button`
   }
 `;
 const Product = () => {
+  const location=useLocation();
+  const id=location.pathname.split("/")[2];
+  const [product,setProduct]=useState({});
+  const [quantity,setQuantity]=useState(1)
+  const [color,setColor]=useState("")
+  const [size,setSize]=useState("")
+  useEffect(()=>{
+      const getProduct=async ()=>{
+        try{
+             const res=await publicRequest.get("/products/find/"+id)  
+             setProduct(res.data);
+        }catch{}
+      };
+      getProduct()
+  },[id])
  
+  const handleQunatity=(type)=>{
+    if(type==="dec")
+    {
+      quantity>1 && setQuantity(quantity-1);
+    }
+    else
+    {
+      setQuantity(quantity+1);
+    }
+  }
   return (
     <Container>
         <Navbar/>
         <Announcement/>
         <Wrapper>
             <ImgContainer>
-            <Image src="https://i.ibb.co/S6qMxwr/jean.jpg"/>
+            <Image src={product.img}/>
             </ImgContainer>
             <InfoContainer>
-            <Title>Denim Jumpsuit</Title>
+            <Title>{product.title}</Title>
           <Desc>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-            venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at
-            iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget
-            tristique tortor pretium ut. Curabitur elit justo, consequat id
-            condimentum ac, volutpat ornare.
+            {product.desc}
           </Desc>
-          <Price>$ 20</Price>
+          <Price>${product.price}</Price>
           <FilterContainer>
-          <Filter>
-              <FilterTitle>Color</FilterTitle>
-              <FilterColor color="black" />
-              <FilterColor color="darkblue" />
-              <FilterColor color="gray" />
-            </Filter>
-            <Filter>
-              <FilterTitle>Size</FilterTitle>
-              <FilterSize>
-                <FilterSizeOption>XS</FilterSizeOption>
-                <FilterSizeOption>S</FilterSizeOption>
-                <FilterSizeOption>M</FilterSizeOption>
-                <FilterSizeOption>L</FilterSizeOption>
-                <FilterSizeOption>XL</FilterSizeOption>
-              </FilterSize>
-            </Filter>
-          </FilterContainer>
+  {product.color && (
+    <Filter>
+      <FilterTitle>Color</FilterTitle>
+      {product.color.map(c => (
+        <FilterColor color={c} key={c} onClick={()=>setColor(c)}/>
+      ))}
+    </Filter>
+  )}
+  {product.size && (
+    <Filter>
+      <FilterTitle>Size</FilterTitle>
+      <FilterSize onChange={(e)=>setSize(e.target.value)}>
+        {product.size.map(c => (
+          <FilterSizeOption key={c}>{c}</FilterSizeOption>
+        ))}
+      </FilterSize>
+    </Filter>
+  )}
+</FilterContainer>
           <AddContainer>
             <AmountContainer>
-                <RemoveIcon/>
-                <Amount>1</Amount>
-                <AddIcon/>
+                <RemoveIcon onClick={()=>handleQunatity("dec")}/>
+                <Amount>{quantity}</Amount>
+                <AddIcon onClick={()=>handleQunatity("inc")}/>
             </AmountContainer>
             <Button>ADD TO CART</Button>
           </AddContainer>
