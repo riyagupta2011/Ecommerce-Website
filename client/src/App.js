@@ -9,6 +9,7 @@ import {
   Routes,
   Route,
 }from "react-router-dom"
+import Success from './pages/Success';
 
 function App() {
   const user=true;
@@ -21,6 +22,7 @@ function App() {
       <Route path="/cart" element={<Cart/>} />
       <Route path="/login" element={user?<Home/>:<Login/>} />
       <Route path="/register" element={user?<Home/>:<Register/>} />
+      <Route path="/success" element={<Success/>} />
     </Routes>
    </Router>
   );
