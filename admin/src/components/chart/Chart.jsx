@@ -7,7 +7,9 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import React from 'react';
+
+import React, { useEffect, useState } from 'react';
+
 export default function Chart({ title, data, dataKey, grid }) {
 
   return (
