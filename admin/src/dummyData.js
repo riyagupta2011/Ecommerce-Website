@@ -1,68 +1,79 @@
 export const userData = [
     {
-      name: 'Jan',
+      name: "Jan",
       "Active User": 4000,
-      
     },
     {
-      name: 'Feb',
+      name: "Feb",
       "Active User": 3000,
-     
     },
     {
-      name: 'March',
+      name: "Mar",
+      "Active User": 5000,
+    },
+    {
+      name: "Apr",
+      "Active User": 4000,
+    },
+    {
+      name: "May",
+      "Active User": 3000,
+    },
+    {
+      name: "Jun",
       "Active User": 2000,
-      
     },
     {
-      name: 'April',
-      "Active User": 2780,
-      
+      name: "Jul",
+      "Active User": 4000,
     },
     {
-      name: 'May',
-      "Active User": 1890,
-     
+      name: "Agu",
+      "Active User": 3000,
     },
     {
-      name: 'Jun',
-      "Active User": 2390,
-     
+      name: "Sep",
+      "Active User": 4000,
     },
     {
-      name: 'Jul',
-      "Active User": 3490,
-     
+      name: "Oct",
+      "Active User": 1000,
     },
     {
-        name: 'Aug',
-        "Active User": 3490,
-       
-      },
-      {
-        name: 'Sep',
-        "Active User": 3490,
-       
-      },
-      {
-        name: 'Oct',
-        "Active User": 3490,
-       
-      },
-      {
-        name: 'Nov',
-        "Active User": 3490,
-       
-      },
-      {
-        name: 'Dec',
-        "Active User": 3490,
-       
-      },
+      name: "Nov",
+      "Active User": 4000,
+    },
+    {
+      name: "Dec",
+      "Active User": 3000,
+    },
+  ];
+
+  export const productData = [
+    {
+      name: "Jan",
+      "Sales": 4000,
+    },
+    {
+      name: "Feb",
+      "Sales": 3000,
+    },
+    {
+      name: "Mar",
+      "Sales": 5000,
+    },
   ];
 
   export const userRows = [
-    { id: 1, username: 'Jon Snow',avatar: "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",email:"jon@gmail.com",status:"active",transaction:"$120.00"},
+    {
+      id: 1,
+      username: "Jon Snow",
+      avatar:
+        "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      email: "jon@gmail.com",
+      status: "active",
+      transaction: "$120.00",
+    },
     {
       id: 2,
       username: "Jon Snow",
@@ -145,6 +156,7 @@ export const userData = [
       transaction: "$120.00",
     },
   ];
+
   export const productRows = [
     {
       id: 1,
@@ -235,19 +247,5 @@ export const userData = [
       stock: 123,
       status: "active",
       price: "$120.00",
-    },
-  ];
-  export const productData = [
-    {
-      name: "Jan",
-      "Sales": 4000,
-    },
-    {
-      name: "Feb",
-      "Sales": 3000,
-    },
-    {
-      name: "Mar",
-      "Sales": 5000,
     },
   ];
